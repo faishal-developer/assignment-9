@@ -1,0 +1,89 @@
+// styles/Navbar.module.scss
+.container{
+    .navbar {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #333;
+        padding: 10px 20px;
+        transition: all 0.3s;
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin: 0 15px;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+
+            .line1,
+            .line2,
+            .line3 {
+                width: 25px;
+                height: 3px;
+                background: #fff;
+                margin: 4px 0;
+            }
+        }
+
+        &.open {
+            transform: translateX(0%);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #333;
+                text-align: center;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+    }
+
+    .menu_open{
+        position: absolute;
+        background: #333;
+        width: 100%;
+        padding:17px;
+        ul{
+            list-style: none;
+            li{
+                padding:5px 0;
+            }
+            li:hover{
+                color:darkcyan
+            }
+        }
+    }
+    .d_none{
+        display: none;
+    }
+}
