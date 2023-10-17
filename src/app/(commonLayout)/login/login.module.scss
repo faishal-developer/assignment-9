@@ -9,6 +9,29 @@
         padding: 15px;
         background-color:white;
         border-radius: 4px;
-        color:black;
+        color:orangered;
+
+        h2{
+            color:orangered;
+            margin:5px 0;
+        }
+        a{
+            margin-top: 5px;
+            display: inline-block;
+            font-size: 15px;
+            color: orangered;
+            
+        }
+        button{
+            width: 100%;
+            border: 1px solid orangered;
+            border-radius: 4px;
+            color: orangered;
+        }
+        button:hover{
+            background-color: orangered;
+            color: white !important;
+            border: 1px solid orangered;
+        }
     }
 }

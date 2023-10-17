@@ -1,0 +1,20 @@
+[
+    {
+    "id": 1,
+    "title": "Tech Conference 2023",
+    "description": "A conference about the latest tech trends.",
+    "date": "October 20, 2023"
+  },
+  {
+    "id": 2,
+    "title": "Hardware Repair Workshop",
+    "description": "Learn how to fix common laptop issues.",
+    "date": "November 5, 2023"
+  },
+  {
+    "id": 2,
+    "title": "Software Repair Workshop",
+    "description": "Learn how to fix common laptop issues.",
+    "date": "November 5, 2023"
+  }
+]

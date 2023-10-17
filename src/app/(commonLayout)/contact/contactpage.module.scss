@@ -1,0 +1,61 @@
+/* styles/ContactPage.module.scss */
+.contactPage {
+    text-align: center;
+    padding: 20px;
+
+    .title {
+        font-size: 2rem;
+        margin: 0 0 20px;
+    }
+
+    .contactInfo {
+        display: flex;
+        justify-content: space-around;
+
+        .contactItem {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 0 10px;
+
+            .contactItemTitle {
+                font-size: 1.5rem;
+                margin: 0 0 20px;
+            }
+
+            .contactItemInfo {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                .contactItemLink {
+                    font-size: 1.2rem;
+                    margin: 5px 0;
+                    text-decoration: none;
+                    color: #007bff;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .contactItemPhone {
+                    font-size: 1.2rem;
+                    margin: 5px 0;
+                }
+            }
+
+            .contactItemLinkLinkedin {
+                font-size: 1.2rem;
+                text-decoration: none;
+                color: #007bff;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

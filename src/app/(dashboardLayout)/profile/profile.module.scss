@@ -1,0 +1,42 @@
+/* styles/ProfileUpdatePage.module.scss */
+.profile_update_page {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+
+    .profile_update_page_title {
+            font-size: 2rem;
+            margin: 0 0 20px;
+        }
+    
+        .profile_update_page_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .profile-update-page-label {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+    
+        input {
+            width: 100%;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+    
+        .profile_update_page_email {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+    button {
+        width: 100%;
+        display: inline-block;
+        height: 35px;
+        margin: 10px 0;
+    }
+}

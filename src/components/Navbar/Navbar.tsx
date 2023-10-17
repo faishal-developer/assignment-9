@@ -26,7 +26,7 @@ const Navbar = () => {
     <div className={styles.container}>
         <nav className={`${styles.navbar} ${menuOpen ? styles.open : ''}`}>
           <div className={styles.logo}>
-            <Link href="/">Laptop Service</Link>
+            <Link href="/">IT Doctor</Link>
           </div>
           <ul
             className={`${styles['nav-links']} ${menuOpen ? styles.open : ''}`}

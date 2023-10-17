@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "review": "Great service! They fixed my laptop quickly and at a reasonable cost."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "review": "I highly recommend their repair service. Professional and friendly staff."
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "review": "Outstanding job! My laptop works like new. Thank you!"
+  }
+]

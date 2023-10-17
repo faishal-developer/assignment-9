@@ -8,8 +8,8 @@ import { SubmitHandler } from "react-hook-form";
 import { storeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "@/schemas/login";
-import style from './login.module.scss'
+import { registrationSchema } from "@/schemas/login";
+import style from '../login/login.module.scss'
 import Link from "next/link";
 
 
@@ -18,7 +18,7 @@ type FormValues = {
   password: string;
 };
 
-const LoginPage = () => {
+const RegistrationPage = () => {
 //   const [userLogin] = useUserLoginMutation();
   const router = useRouter();
 
@@ -43,7 +43,25 @@ const LoginPage = () => {
     <div className={style.container}>
         <div className={style.login}>
             <h2>Please Login</h2>
-            <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
+            <Form submitHandler={onSubmit} resolver={yupResolver(registrationSchema)}>
+            <div>
+              <FormInput
+                name="name"
+                type="text"
+                size="large"
+                label="Name"
+                required
+              />
+            </div>
+            <div>
+              <FormInput
+                name="phoneNumber"
+                type="text"
+                size="large"
+                label="Phone Number"
+                required
+              />
+            </div>
             <div>
               <FormInput
                 name="email"
@@ -70,10 +88,10 @@ const LoginPage = () => {
               Login
             </Button>
           </Form>
-          <Link href={'/registration'}>If you not registered yet? Please Register</Link>
+          <Link href={'/login'}>If you not registered already? Please login</Link>
         </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegistrationPage;

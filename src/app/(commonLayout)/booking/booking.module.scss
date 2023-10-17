@@ -1,0 +1,67 @@
+/* styles/BookingPage.module.scss */
+.booking_page {
+    text-align: center;
+    padding: 20px;
+
+    .title {
+        font-size: 2rem;
+        margin: 0 0 20px;
+    }
+
+    .services {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .summary {
+        margin-top: 20px;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-size: 1.2rem;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/* styles/BookingItem.module.scss */
+.booking_item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: left;
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &.selected {
+            background-color: #ff6347;
+        }
+    }
+}

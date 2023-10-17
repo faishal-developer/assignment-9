@@ -1,0 +1,58 @@
+[
+    {
+        "image":"https://i.ibb.co/Fhfm5MR/ssd.jpg",
+        "name":"add ssd",
+        "price":700,
+        "description":"Insert new one",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/D8XwgCx/whitescreenproblem.jpg",
+        "name":"white screen problem",
+        "price":500,
+        "description":"white screen when system open",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/30zsNkT/black-Screen-Problem.png",
+        "name":"Black screen problem",
+        "price":500,
+        "description":"black screen when system open",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/y6PLHvZ/system-Error.jpg",
+        "name":"System Error",
+        "price":1000,
+        "description":"Crashed system, system error",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/xFgpjwQ/motherboard.jpg",
+        "name":"Fix motherboard",
+        "price":2500,
+        "description":"all kind of motherboard problem including change motherboard",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/LZm57px/software-Virus.jpg",
+        "name":"Fix software viruses",
+        "price":2500,
+        "description":"all kind of virus, malware remove here",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/5BNr1M6/software.jpg",
+        "name":"Software related services",
+        "price":2000,
+        "description":"Update windows, Change system software linux, window. UPdate all services and any bug of system software",
+        "availableTimeSlots":[]
+    },
+    {
+        "image":"https://i.ibb.co/272KKgX/ram.jpg",
+        "name":"Insert new ram",
+        "price":500,
+        "description":"add new one",
+        "availableTimeSlots":[]
+    }
+]
