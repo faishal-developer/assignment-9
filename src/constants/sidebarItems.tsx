@@ -23,12 +23,16 @@ export const sidebarItems = (role: string) => {
         }
       ],
     },
+  ];
+
+  const userSideBarItems=[
+    ...defaultSidebarItems,
     {
       label: "Feedback",
       key: "feedback",
       icon: <Link href={`/${role}/feedback`}><ScheduleOutlined /></Link>,
     },
-  ];
+  ]
 
 
   const adminSidebarItems: MenuProps["items"] = [
@@ -60,10 +64,6 @@ export const sidebarItems = (role: string) => {
         {
           label: <Link href={`/${role}/add-service`}>Add Service</Link>,
           key: `/${role}/add-service`,
-        },
-        {
-          label: <Link href={`/${role}/delete-service`}>Delete Service</Link>,
-          key: `/${role}/delete-service`,
         }
       ],
     },
@@ -88,7 +88,7 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/blogs`,
         },
         {
-          label: <Link href={`/${role}/edit-blogs`}>add blogs</Link>,
+          label: <Link href={`/${role}/add-blogs`}>add blogs</Link>,
           key: `/${role}/add-blogs`,
         }
       ],
@@ -98,17 +98,13 @@ export const sidebarItems = (role: string) => {
   const superAdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
     {
-      label: "User Management",
-      key: "user-management",
+      label: "Admin Management",
+      key: "admin-management",
       icon: <TableOutlined />,
       children: [
         {
-          label: <Link href={`/${role}/users`}>Users</Link>,
+          label: <Link href={`/admin/users`}>Users</Link>,
           key: `/${role}/academic/semester`,
-        },
-        {
-          label: <Link href={`/${role}/add-user`}>Add User</Link>,
-          key: `/${role}/add-user`,
         }
       ],
     },
@@ -119,6 +115,6 @@ export const sidebarItems = (role: string) => {
   if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
   else if (role === USER_ROLE.ADMIN) return adminSidebarItems;
   else {
-    return defaultSidebarItems;
+    return userSideBarItems;
   }
 };

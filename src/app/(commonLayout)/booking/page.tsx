@@ -1,11 +1,11 @@
 // components/BookingPage.js
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BookingItem from '../../../components/ui/BookingItem'; // Create this component for each service
 
 const BookingPage = () => {
   const [selectedServices, setSelectedServices] = useState([]);
-
+  const [cartData,setCartData] = useState();
 //   const handleServiceSelection = (service) => {
 //     // Add or remove the selected service
 //     if (selectedServices.includes(service)) {

@@ -1,21 +1,23 @@
-import { authKey } from "@/constants/storageKey";
+import { authKey, serviceKey } from "@/constants/storageKey";
 import { instance as axiosInstance } from "../helpers/axiosInstance";
 import { getBaseUrl } from "@/helpers/config/envConfig";
 import { decodedToken } from "../utils/jwt";
 import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage";
+import { loginPayload } from "@/types";
 
-export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
+export const storeUserInfo = (accessToken: string) => {
+  if (!accessToken) return;
   return setToLocalStorage(authKey, accessToken as string);
 };
 
-export const getUserInfo = () => {
+export const getUserInfo = (payload: string | null): loginPayload | null => {
   const authToken = getFromLocalStorage(authKey);
   // console.log(authToken);
   if (authToken) {
-    const decodedData = decodedToken(authToken);
-    return decodedData;
+    const decodedData = decodedToken(payload || authToken);
+    return decodedData as loginPayload;
   } else {
-    return "";
+    return null;
   }
 };
 
@@ -35,4 +37,14 @@ export const getNewAccessToken = async () => {
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
   });
+};
+
+export const setServiceToCart = (data: any) => {
+  const storageData: any = getFromLocalStorage(serviceKey);
+  let localData: any = [];
+  if (storageData) {
+    localData = [...JSON.parse(storageData)];
+  }
+  localData.push(data);
+  setToLocalStorage(serviceKey, JSON.stringify(localData));
 };

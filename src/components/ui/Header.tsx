@@ -1,15 +1,20 @@
+'use client'
 import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { authKey } from "@/constants/storageKey";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/reduxHooks";
+import {deleteData} from "@/redux/slices/loginSlice"
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const router = useRouter();
+  const dispatch= useAppDispatch();
 
   const logOut = () => {
-    removeUserInfo(authKey);
+    dispatch(deleteData())
+    // removeUserInfo(authKey);
     router.push("/login");
   };
 
@@ -23,7 +28,7 @@ const Header = () => {
       ),
     },
   ];
-  const { role } = getUserInfo() as any;
+  const { role } = getUserInfo(null) as any;
   return (
     <AntHeader
       style={{

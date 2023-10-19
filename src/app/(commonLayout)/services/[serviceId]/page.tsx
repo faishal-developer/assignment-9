@@ -1,35 +1,62 @@
+'use client'
+import { useGetSingleFaqQuery } from '@/redux/api/faqApi';
 import style from '../services.module.scss';
+import { useEffect, useState } from 'react';
+import { useSingleServiceQuery } from '@/redux/api/serviceApi';
+import { getDateTimeString } from '@/helpers/commonFunction';
+import { getUserInfo, setServiceToCart } from '@/services/auth.service';
+import ReactToastify from '@/components/ui/reactToastify';
+import { toast } from 'react-toastify';
+import { useAddBookingMutation } from '@/redux/api/bookingApi';
+import { Button } from 'antd';
 type IProps={
     params: { serviceId: string }
 }
-const service = 
-  {
-    id: '1',
-    title: 'Laptop Screen Replacement',
-    description: 'We will replace your laptop screen with a brand new one.',
-    image: 'https://i.ibb.co/Fhfm5MR/ssd.jpg',
-    timeSlots: ['9:00 AM - 11:00 AM', '1:00 PM - 3:00 PM', '4:00 PM - 6:00 PM'],
-  }
 
-export default function SingleProductPage({ params }:IProps) {
-    console.log(params.serviceId);
-    
+export default function SingleProductPage({ params }:IProps) {  
+    const [submitBooking,result] = useAddBookingMutation();
+    const [error,setError]= useState('');  
+    const [timeSlot,setTimeSlot]=useState<{startsTime?:number,endsTime?:number}>({})
+    const {data:service,isLoading} = useSingleServiceQuery(params.serviceId);
+    const handleCart=async()=>{
+      if(!timeSlot?.startsTime){
+        setError("Please Select a timeslot")
+      }else{
+        const res=await submitBooking([{userId:getUserInfo(null)?._id,serviceId:service._id,timeSlot,status:'pending'}])
+        if(res?.data){
+          toast.success("Service booked")
+        }else{
+          toast.error(res?.error?.error);
+        }
+      }
+    }
   return (
     <div className={style.single_service}>
+      <ReactToastify/>
         <div className={style.service_page}>
           <div className={style.service_image}>
-            <img src={service.image} alt={service.title} />
+            <img src={service?.image} alt={service?.title} />
           </div>
           <div className={style.service_details}>
-            <h1>{service.title}</h1>
-            <p>{service.description}</p>
+            <h1>{service?.name}</h1>
+            <p>{service?.description}</p>
             <h2>Available Time Slots</h2>
             <ul className={style.time_slots}>
-              {service.timeSlots.map((slot, index) => (
-                <li key={style.index}>{slot}</li>
+              {service?.availableTimeSlots.map((slot:any, index:number) => (
+                <li 
+                  key={style.index}
+                  onClick={()=>{setTimeSlot(slot);setError('')}}
+                  style={{
+                    cursor:'pointer',
+                    color:slot==timeSlot?'green':'black'
+                  }}
+                >
+                  {getDateTimeString(slot.startsTime)} To {getDateTimeString(slot.endsTime)}
+                </li>
               ))}
+              {<p style={{color:'red'}}>{error?error:''}</p>}
             </ul>
-            <button className={style.btn_primary}>Add to Cart</button>
+            <Button loading={result?.isLoading} disabled={result?.isLoading} onClick={handleCart}>Book Service</Button>
           </div>
         </div>
     </div>

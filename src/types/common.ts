@@ -10,12 +10,39 @@ export type ResponseSuccessType = {
 };
 
 export type IGenericErrorResponse = {
-  statusCode: number;
-  message: string;
-  errorMessages: IGenericErrorMessage[];
+  statusCode?: number;
+  error: string;
+  errorMessages?: IGenericErrorMessage[];
 };
 
 export type IGenericErrorMessage = {
   path: string | number;
   message: string;
+};
+
+export type loginPayload = {
+  email?: string;
+  _id?: string;
+  role?: string;
+};
+
+export type IBlog = {
+  userId?: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+export type IFaq = {
+  userId: string;
+  question: string;
+  ans?: string;
+};
+
+export type Icart = {
+  productId: string;
+  timeSlot: {
+    startsTime: number;
+    endsTime: number;
+  };
 };

@@ -11,38 +11,51 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registrationSchema } from "@/schemas/login";
 import style from '../login/login.module.scss'
 import Link from "next/link";
+import { useRegistrationMutation } from "@/redux/api/AuthApi";
+import { user_role } from "@/constants/role";
+import ReactToastify from "@/components/ui/reactToastify";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 
 type FormValues = {
-  id: string;
+  name: string;
+  phone: string;
+  email: string;
   password: string;
 };
 
 const RegistrationPage = () => {
-//   const [userLogin] = useUserLoginMutation();
+  const [userLogin,result] = useRegistrationMutation();
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
+        data.role=user_role.User;
         console.log(data);
         
-    //   const res = await userLogin({ ...data }).unwrap();
-    //   // console.log(res);
-    //   if (res?.accessToken) {
-    //     router.push("/profile");
-    //     message.success("User logged in successfully!");
-    //   }
-    //   storeUserInfo({ accessToken: res?.accessToken });
-      // console.log(res);
+        
+      const res:any = await userLogin({ ...data });
+      console.log(res);
+      
+      if(res?.data){
+        toast.success("Registration completed successfully");
+        router.push('/login');
+      }else{
+        toast.error(res?.error?.error);
+      }
+    
     } catch (err: any) {
       console.error(err.message);
+      toast.error("Failed to register");
     }
   };
 
   return (
     <div className={style.container}>
+      <ReactToastify/>
         <div className={style.login}>
-            <h2>Please Login</h2>
+            <h2>Please Register</h2>
             <Form submitHandler={onSubmit} resolver={yupResolver(registrationSchema)}>
             <div>
               <FormInput
@@ -84,8 +97,8 @@ const RegistrationPage = () => {
                 required
               />
             </div>
-            <Button htmlType="submit">
-              Login
+            <Button loading={result?.isLoading} disabled={result?.isLoading} htmlType="submit">
+              Registration
             </Button>
           </Form>
           <Link href={'/login'}>If you not registered already? Please login</Link>

@@ -2,32 +2,39 @@
 import Link from "next/link";
 import style from './home.module.scss';
 import { Card } from 'antd';
-import services from '../../fakeData/services.json';
+// import services from '../../fakeData/services.json';
 import { IServices } from "@/interfaces/services.interface";
+import { useGetBlogsQuery } from "@/redux/api/BlogApi";
+import { IBlog } from "@/types";
 
 const { Meta } = Card;
 
 const Blogs = () => {
+  const {data:services,isLoading} = useGetBlogsQuery({limit:4,page:1});
     return (
         <div className={style.serviceContainer}>
             <div className={style.header}>
                 <h3>Latest Blogs</h3>
-                <Link href={'/services'}>View All</Link>
+                <Link href={'/blogs'}>View All</Link>
             </div>
-            <div className={style.content}>
+            {
+              isLoading?"Loading...":(
+                <div className={style.content}>
               {
-                services?.map((item:IServices,i)=>(
+                services?.map((item:IBlog,i:number)=>(
                     <Card
                       key={i}
                       hoverable
                       style={{ width: 240 }}
                       cover={<img alt="example" src={item.image} />}
                     >
-                      <Meta title={item.name} description={item.price+'tk only'} />
+                      <Meta title={item.title} description={item.description} />
                     </Card>
                 ))
               }
             </div>
+              )
+            }
         </div>
     );
 };

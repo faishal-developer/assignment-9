@@ -1,11 +1,19 @@
 'use client'
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import styles from './Navbar.module.scss';
+import { getUserInfo } from '@/services/auth.service';
+import { loginPayload } from '@/types';
+import { LoginOutlined, UserOutlined } from '@ant-design/icons';
+import { useAppDispatch, useAppSelector } from '@/redux/reduxHooks';
+import { setData, setInfo } from '@/redux/slices/loginSlice';
+import { authKey } from '@/constants/storageKey';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuHeight, setMenuHeight] = useState('0');
+  const userInfo = useAppSelector((state)=>state.loginReducer.data) 
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (menuOpen) {
@@ -20,8 +28,11 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  console.log(styles);
-  
+
+  useEffect(()=>{
+    dispatch(setInfo())
+  },[])
+ 
   return (
     <div className={styles.container}>
         <nav className={`${styles.navbar} ${menuOpen ? styles.open : ''}`}>
@@ -44,6 +55,12 @@ const Navbar = () => {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
+            <li><Link href="/login" style={{ display: userInfo?.email ? 'none' : 'block' }}>
+              Login
+            </Link></li>
+            <li><Link href="/profile" style={{ display: userInfo?.email ? 'block' : 'none' }}>
+              Profile
+            </Link></li>
           </ul>
           <div
             className={`${styles.burger}`}
@@ -68,6 +85,16 @@ const Navbar = () => {
                 <li>
                   <Link href="/contact">Contact</Link>
                 </li>
+                {userInfo?.email?(
+                    <li>
+                      <Link href="/profile">Profile</Link>
+                    </li>
+                  ):(
+                    <li>
+                      <Link href="/login">Login</Link>
+                    </li>
+                  )
+                }
             </ul>
         </div>
     </div>

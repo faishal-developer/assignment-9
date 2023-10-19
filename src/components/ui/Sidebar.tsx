@@ -6,6 +6,7 @@ import { Layout, Menu } from "antd";
 import { sidebarItems } from "@/constants/sidebarItems";
 import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
+import Link from "next/link";
 
 const { Sider } = Layout;
 
@@ -13,7 +14,7 @@ const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   // const role = USER_ROLE.ADMIN;
-  const { role } = getUserInfo() as any;
+  const { role } = getUserInfo(null) as any;
   // console.log(role);
 
   return (
@@ -41,13 +42,13 @@ const SideBar = () => {
           padding: "10px 0px",
         }}
       >
-        IT
+        <Link href="/home">IT</Link>
       </div>
       <Menu
         theme="dark"
         defaultSelectedKeys={["1"]}
         mode="inline"
-        items={sidebarItems(`user`)}
+        items={sidebarItems(role)}
       />
     </Sider>
   );

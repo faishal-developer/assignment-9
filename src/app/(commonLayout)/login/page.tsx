@@ -11,29 +11,39 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/schemas/login";
 import style from './login.module.scss'
 import Link from "next/link";
+import { useLoginMutation } from "@/redux/api/AuthApi";
+import ReactToastify from "@/components/ui/reactToastify";
+import { toast } from "react-toastify";
+import { withRouter } from "next/router";
+import { useAppDispatch } from "@/redux/reduxHooks";
+import { setData } from "@/redux/slices/loginSlice";
 
 
 type FormValues = {
-  id: string;
+  email: string;
   password: string;
 };
 
 const LoginPage = () => {
-//   const [userLogin] = useUserLoginMutation();
-  const router = useRouter();
-
+  const [userLogin,result] = useLoginMutation();
+  const router:any = useRouter();
+  const searchParams = new URLSearchParams(window.location.search);
+  const targetRoute = searchParams.get('targetRoute') || '/home'; 
+  const dispatch = useAppDispatch();
+  
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-        console.log(data);
         
-    //   const res = await userLogin({ ...data }).unwrap();
-    //   // console.log(res);
-    //   if (res?.accessToken) {
-    //     router.push("/profile");
-    //     message.success("User logged in successfully!");
-    //   }
-    //   storeUserInfo({ accessToken: res?.accessToken });
-      // console.log(res);
+      const res:any = await userLogin({ ...data });
+      if (res?.data?.accessToken) {
+        router.push(targetRoute);
+
+        toast.success("User logged in successfully!");
+      }else{
+        toast.error(res?.error?.error)
+      }
+      dispatch(setData(res?.data?.accessToken))
+      // storeUserInfo({ accessToken: res?.data?.accessToken });
     } catch (err: any) {
       console.error(err.message);
     }
@@ -41,6 +51,7 @@ const LoginPage = () => {
 
   return (
     <div className={style.container}>
+      <ReactToastify/>
         <div className={style.login}>
             <h2>Please Login</h2>
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
@@ -66,11 +77,15 @@ const LoginPage = () => {
                 required
               />
             </div>
-            <Button htmlType="submit">
+            <Button loading={result?.isLoading} disabled={result?.isLoading} htmlType="submit">
               Login
             </Button>
           </Form>
-          <Link href={'/registration'}>If you not registered yet? Please Register</Link>
+          <Link href={'/registration'}>If you not registered yet? Please Register</Link><br/>
+          <span>
+            note: admin-login  {`->`} admin@gmail.com pass{`->`}123456<br/>
+          note: super-admin-login  {`->`} superadmin@gmail.com pass{`->`}123456
+          </span>
         </div>
     </div>
   );

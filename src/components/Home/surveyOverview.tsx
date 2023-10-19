@@ -1,4 +1,5 @@
 // components/SurveyOverview.js
+import Link from 'next/link';
 import style from './home.module.scss'
 const SurveyOverview = () => {
   return (
@@ -8,9 +9,9 @@ const SurveyOverview = () => {
         We value your feedback. Please take a moment to complete our survey and let us know about your recent repair
         experience with us. Your input helps us improve our services.
       </p>
-      <a href='/survey' className={style.btn_primary}>
-        Ask a question
-      </a>
+      <Link href='/user/feedback' className={style.btn_primary}>
+        Give a FeedBack about our Service
+      </Link>
       <p>
         <strong>Our Repair Process Overview:</strong>
       </p>
