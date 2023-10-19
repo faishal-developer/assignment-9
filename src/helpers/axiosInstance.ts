@@ -1,3 +1,4 @@
+"use client";
 import { authKey } from "@/constants/storageKey";
 
 import { IGenericErrorResponse, ResponseSuccessType } from "@/types";

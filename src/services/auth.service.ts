@@ -1,3 +1,4 @@
+"use client";
 import { authKey, serviceKey } from "@/constants/storageKey";
 import { instance as axiosInstance } from "../helpers/axiosInstance";
 import { getBaseUrl } from "@/helpers/config/envConfig";

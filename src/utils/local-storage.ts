@@ -1,3 +1,4 @@
+"use client";
 export const setToLocalStorage = (key: string, token: string) => {
   if (!key) {
     return "";
