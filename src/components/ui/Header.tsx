@@ -27,7 +27,7 @@ const Header = () => {
       ),
     },
   ];
-  const { role } = getUserInfo(null) as any;
+  const userInfo = getUserInfo(null) as any;
   return (
     <AntHeader
       style={{
@@ -46,7 +46,7 @@ const Header = () => {
             margin: "0px 5px",
           }}
         >
-          {role}
+          {userInfo?.role}
         </p>
         <Dropdown menu={{ items }}>
           <a>

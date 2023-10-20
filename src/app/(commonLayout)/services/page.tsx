@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 const ServicesPage = () => {
   const router=useRouter();
   const [page,setPage]=useState<number>(1);
-  const [limit,setLimit]=useState<number>(10);
+  const [limit,setLimit]=useState<number>(24);
   const [searchTerm,setSearchTerm]=useState<string>('')
   const {data:services,isLoading} = useGetServicesQuery({page,limit,searchTerm})
     return (
