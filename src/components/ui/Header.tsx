@@ -14,7 +14,6 @@ const Header = () => {
 
   const logOut = () => {
     dispatch(deleteData())
-    // removeUserInfo(authKey);
     router.push("/login");
   };
 
