@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { withRouter } from "next/router";
 import { useAppDispatch } from "@/redux/reduxHooks";
 import { setData } from "@/redux/slices/loginSlice";
+import { useEffect, useState } from "react";
 
 
 type FormValues = {
@@ -27,16 +28,22 @@ type FormValues = {
 const LoginPage = () => {
   const [userLogin,result] = useLoginMutation();
   const router:any = useRouter();
-  const searchParams = new URLSearchParams(window.location.search);
-  const targetRoute = searchParams.get('targetRoute') || '/home'; 
+  const [targetRoute,settargetRoute] =useState('');
   const dispatch = useAppDispatch();
-  
+  useEffect(()=>{
+    const  route = new URLSearchParams(window.location.search)
+    settargetRoute(route.get('targetRoute') || '');
+  },[])
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
         
       const res:any = await userLogin({ ...data });
       if (res?.data?.accessToken) {
-        router.push(targetRoute);
+        if(targetRoute){
+          router.back();
+        }else{
+          router.push("/home")
+        }
 
         toast.success("User logged in successfully!");
       }else{

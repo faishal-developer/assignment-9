@@ -21,7 +21,7 @@ const SideBar = () => {
 
   useEffect(()=>{
     if(!userInfo?.role){
-      router.push('/login')
+      router.push(`/login?targetRoute=${"/profile"}`)
     }
   },[userInfo])
   return (
