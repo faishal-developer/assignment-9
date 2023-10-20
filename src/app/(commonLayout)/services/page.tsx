@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 const ServicesPage = () => {
   const router=useRouter();
   const [page,setPage]=useState<number>(1);
-  const [limit,setLimit]=useState<number>(2);
+  const [limit,setLimit]=useState<number>(10);
   const [searchTerm,setSearchTerm]=useState<string>('')
   const {data:services,isLoading} = useGetServicesQuery({page,limit,searchTerm})
     return (
@@ -37,9 +37,9 @@ const ServicesPage = () => {
               }
               
             </div>
-            <div className={style.pagination}>
+            {/* <div className={style.pagination}>
                 <CustomPagination page={page} total={Math.ceil(services?.meta?.total/limit)} handlePageClick={(...data:any)=>{setPage(data[0].selected+1)}} />
-            </div>
+            </div> */}
         </div>
     );
 };
