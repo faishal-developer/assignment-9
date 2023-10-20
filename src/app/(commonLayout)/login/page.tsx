@@ -27,7 +27,8 @@ type FormValues = {
 const LoginPage = () => {
   const [userLogin,result] = useLoginMutation();
   const router:any = useRouter();
-  const targetRoute = '/home'; 
+  const searchParams = new URLSearchParams(window.location.search);
+  const targetRoute = searchParams.get('targetRoute') || '/home'; 
   const dispatch = useAppDispatch();
   
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
