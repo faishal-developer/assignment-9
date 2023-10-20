@@ -1,22 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 
 import { sidebarItems } from "@/constants/sidebarItems";
 import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
+  const router=useRouter();
   const [collapsed, setCollapsed] = useState(false);
 
   // const role = USER_ROLE.ADMIN;
-  const { role } = getUserInfo(null) as any;
+  const userInfo = getUserInfo(null) as any;
   // console.log(role);
 
+  useEffect(()=>{
+    if(!userInfo?.role){
+      router.push('/login')
+    }
+  },[userInfo])
   return (
     <Sider
       collapsible
@@ -48,7 +55,7 @@ const SideBar = () => {
         theme="dark"
         defaultSelectedKeys={["1"]}
         mode="inline"
-        items={sidebarItems(role)}
+        items={sidebarItems(userInfo?.role)}
       />
     </Sider>
   );
