@@ -9,6 +9,7 @@ const { Meta } = Card;
 
 const Services = () => {
   const {data:services,isLoading} = useGetServicesQuery({limit:4,page:1});
+  console.log("data",services)
 
     return (
         <div className={style.serviceContainer}>

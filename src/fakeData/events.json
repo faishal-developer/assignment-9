@@ -12,9 +12,15 @@
     "date": "November 5, 2023"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Software Repair Workshop",
     "description": "Learn how to fix common laptop issues.",
     "date": "November 5, 2023"
+  },
+  {
+    "id": 4,
+    "title": "Virus Repair workshop",
+    "description": "Learn how to fix common viruses issues.",
+    "date": "November 12, 2023"
   }
 ]

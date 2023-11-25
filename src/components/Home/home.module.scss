@@ -1,5 +1,5 @@
 .banner{
-    background-image: url('../../assets/image/idDoctorbanner2.png');
+    background-image: url('../../assets/image/SelectedTheme.jpg');
     width: 100vw;
     min-height: 60vh;
     display: flex;
@@ -9,14 +9,15 @@
     .content{
         max-width: 550px;
         padding: 15px;
-        color:orangered;
+        color:White;
 
         h1{
-            font-size: 60px;
+            font-size: 45px;
         }
         p{
+            text-align: justify;
             font-size: 22px;
-            font-weight: bold;
+            // font-weight: bold;
         }
     }
 }
@@ -25,7 +26,7 @@
     .banner{
         .content {
             max-width: 400px;
-            color: orangered;
+            // color: #551A8B;
     
             h1 {
                 font-size: 40px;
@@ -43,24 +44,25 @@
 
 ///services
 .serviceContainer{
-    margin:25px 0;
+    margin:50px 20px 20px;
     padding:0 15px;
     .header{
         display: flex;
         justify-content: space-between;
         margin:10px 0;
         h3{
-            color:orangered;
+            color:#222;
             font-size:22px;
         }
         a{
-            color: orangered;
-            border: 1px solid orangered;
+            color: #551A8B;
+            border: 1px solid #551A8B;
             padding:5px ;
             border-radius: 4px;
+            max-height: 20px;
         }
         a:hover{
-            background-color: orangered;
+            background-color: #551A8B;
             color: white;
         }
     }
@@ -68,37 +70,96 @@
         display:grid;
         grid-template-columns: repeat(4,1fr);
         row-gap:15px;
+        a>div{
+            height: 270px;
+            transition: .5s;
+        }
+        a{
+            text-align: center;
+        }
+        img{
+            max-width: 96%;
+            text-align: center;
+            padding: 5px;
+            max-height: 150px;
+        }
     }
 }
 
-
+@media screen and (max-width: 950px){
+    .serviceContainer{
+        .content{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    .serviceContainer{
+        .content{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    .serviceContainer{
+        .content{
+            grid-template-columns: repeat(1, 1fr);
+            a{
+                margin: auto;
+            }
+        }
+    }
+}
 //events
+
+.eventSurveyContainer{
+    background-image: url('../../assets/image/61901993.jpg');
+}
 .eventContainer{
+    // background-image: url('../../assets/image/blacktheme2.jpg');
+    // min-height: 400px;
+    display: flex;
+    align-items: center;
     .events_by_category {
         margin: 20px;
         padding: 20px;
-        border: 1px solid #ccc;
-        color:#333;
-        background-color: #f8f8f8;
+        // border: 1px solid #ccc;
+        color:#222;
+        // background-color: #f8f8f8;
         border-radius:4px ;
 
         h2{
-            color: orangered;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 35px;
         }
     }
 
     .event_list {
-        display: flex;
-        flex-wrap: wrap;
+        margin: auto;
+        display: grid;
+        // flex-wrap: wrap;
+        grid-template-columns: repeat(4,1fr);
+
+        @media screen and (max-width: 900px){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (max-width: 700px){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 450px){
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     .event_card {
-        background-color: #fff;
+        // background-color: #fff;
         margin: 10px;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 5px;
-        width: 300px;
+        max-width: 270px;
+        color: white;
 
         h3 {
             font-size: 1.2rem;
@@ -109,6 +170,11 @@
             margin: 10px 0;
         }
     }
+    .event_card:hover {
+        // background-color: #551A8B;
+        box-shadow: 1px 1px 10px;
+        transition: 1s;
+    }
 }
 
 
@@ -116,12 +182,14 @@
 /* styles/SurveyOverview.module.scss */
 /* styles/SurveyOverview.module.scss */
 .survey_overview {
-    background-color: #f8f8f8;
+    // background-color: #f8f8f8;
     padding: 20px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     text-align: center;
     // border-radius: 10px;
-    color: #333;
+    color: white;
+    max-width: 800px;
+    margin: auto;
 
     h2 {
         font-size: 1.8rem;
@@ -131,19 +199,21 @@
     p {
         font-size: 1.2rem;
         line-height: 1.6;
+        text-align: justify;
     }
 
     .btn_primary {
         margin: 10px 0;
         display: inline-block;
-        color: orangered;
-        border: 1px solid orangered;
+        color: #551A8B;
+        transition: 1s;
+        border: 1px solid #551A8B;
         padding: 7px 12px;
         font-weight: bold;
         border-radius: 4px;
     }
     .btn_primary:hover {
-        background-color: orangered;
+        background-color: #551A8B;
         color: white;
     }
 }
@@ -155,7 +225,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     text-align: center;
-    color:#333;
+    color:#222;
     margin:25px 0;
 
     h2 {
@@ -188,14 +258,14 @@
         }
     }
     button {
-        background-color: #333;
+        background-color: #222;
         border-radius: 10px;
         font-size: 15px;
         width: 20px;
         height: 20px;
     }
     button:hover {
-        background-color: #333;
+        background-color: #222;
         border-radius: 10px;
         font-size: 15px;
         width: 20px;
@@ -210,13 +280,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: #222;
+    margin:0;
 
     a{
-        background-color: orangered;
         padding:9px 14px;
         font-size: 25px;
         font-weight: 800;
         border-radius: 4px;
+        transition: 1s;
+        background-color: #551A8B;
+            color: white;
     }
+    a:hover{
+        color: #551A8B;
+        border: 1px solid #551A8B;
+        background-color: transparent;
+    }
+
 }

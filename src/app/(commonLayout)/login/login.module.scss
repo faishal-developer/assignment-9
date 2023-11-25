@@ -9,29 +9,29 @@
         padding: 15px;
         background-color:white;
         border-radius: 4px;
-        color:orangered;
+        color:#551A8B;
 
         h2{
-            color:orangered;
+            color:#551A8B;
             margin:5px 0;
         }
         a{
             margin-top: 5px;
             display: inline-block;
             font-size: 15px;
-            color: orangered;
+            color: #551A8B;
             
         }
         button{
             width: 100%;
-            border: 1px solid orangered;
+            border: 1px solid #551A8B;
             border-radius: 4px;
-            color: orangered;
+            color: #551A8B;
         }
         button:hover{
-            background-color: orangered;
+            background-color: #551A8B;
             color: white !important;
-            border: 1px solid orangered;
+            border: 1px solid #551A8B;
         }
     }
 }

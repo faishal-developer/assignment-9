@@ -1,7 +1,7 @@
 .services{
     margin:25px 0;
     padding:15px;
-    color:#333;
+    color:#222;
 
     .search{
         margin:20px 0;
@@ -11,7 +11,7 @@
         input{
             min-height: 40px;
             min-width: 325px;
-            border: 1px solid orangered;
+            border: 1px solid #551A8B;
             background-color: white;
             color: black;
             padding: 5px 8px;
@@ -19,21 +19,21 @@
             border-bottom-left-radius: 4px;
         }
         input:focus{
-            outline: 2px solid orangered;
+            outline: 2px solid #551A8B;
         }
         button{
-            border: 1px solid orangered;
+            border: 1px solid #551A8B;
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
             padding:2px 5px;
             font-size: 15px;
             font-weight: bold;
-            color: orangered;
+            color: #551A8B;
             background-color: white;
             cursor: pointer;
         }
         button:hover{
-            background-color: orangered;
+            background-color: #551A8B;
             color:white;
         }
     }
@@ -76,7 +76,7 @@
 .single_service{
     /* styles/ServicePage.module.scss */
         /* styles/ServicePage.module.scss */
-        color: #333;
+        color: #222;
     .service_page {
         display: flex;
         justify-content: space-between;

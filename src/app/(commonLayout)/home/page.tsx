@@ -13,8 +13,10 @@ const HomePage = () => {
         <div className={style.home}>
             <Banner/>
             <Services/>
-            <EventsByCategory events={events}/>
-            <SurveyOverview/>
+            <div className={'eventSurveyContainer'}>
+                <EventsByCategory events={events}/>
+                <SurveyOverview/>
+            </div>
             <ClientReviews/>
             <Blogs/>
             <ContactUs/>

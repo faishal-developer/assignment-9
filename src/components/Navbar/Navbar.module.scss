@@ -5,20 +5,21 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #333;
-        padding: 10px 20px;
+        // background: #222;
+        padding: 30px;
         transition: all 0.3s;
 
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: orangered;
+            color: #551A8B;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
             margin: 0;
+            align-items: center;
             padding: 0;
 
             li {
@@ -26,7 +27,11 @@
 
                 a {
                     text-decoration: none;
-                    color: #fff;
+                    color: #222;
+                    font-weight: bold;
+                }
+                a:hover{
+                    color: #551A8B;
                 }
             }
         }
@@ -41,7 +46,7 @@
             .line3 {
                 width: 25px;
                 height: 3px;
-                background: #fff;
+                background: #222;
                 margin: 4px 0;
             }
         }
@@ -58,7 +63,7 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background: #333;
+                background: #222;
                 text-align: center;
             }
 
@@ -70,13 +75,20 @@
 
     .menu_open{
         position: absolute;
-        background: #333;
+        background: #222;
         width: 100%;
         padding:17px;
         ul{
             list-style: none;
             li{
-                padding:5px 0;
+                padding:10px 0;
+
+                a{
+                    color:white;
+                }
+                a:hover{
+                    color:#551A8B;
+                }
             }
             li:hover{
                 color:darkcyan
