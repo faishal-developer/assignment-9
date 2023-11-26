@@ -4,6 +4,7 @@ import ReactToastify from '@/components/ui/reactToastify';
 import { useGetUsersQuery } from '@/redux/api/AuthApi';
 import { useDeleteBlogMutation, useGetBlogsQuery } from '@/redux/api/BlogApi';
 import { Button } from 'antd';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -53,7 +54,7 @@ const UsersPage = () => {
       title: "Image",
       dataIndex: "image",
       render: function (data: any) {
-        return <>{data}</>;
+        return <><Image width={40} height={40} src={data} alt="product"/></>;
       },
     },
     {

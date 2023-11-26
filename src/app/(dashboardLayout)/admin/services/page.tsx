@@ -3,6 +3,7 @@ import UMTable from '@/components/ui/CustomTable';
 import { useGetUsersQuery } from '@/redux/api/AuthApi';
 import { useDeleteServiceMutation, useGetServicesQuery } from '@/redux/api/serviceApi';
 import { Button } from 'antd';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -57,7 +58,7 @@ const UsersPage = () => {
       title: "Image ",
       dataIndex: "image",
       render: function (data: any) {
-        return <>{data }</>;
+        return <><Image width={40} height={40} src={data} alt="product"/></>;
       },
     },
     {
