@@ -48,7 +48,7 @@ export default function SingleProductPage({ params }:IProps) {
                   onClick={()=>{setTimeSlot(slot);setError('')}}
                   style={{
                     cursor:'pointer',
-                    color:slot==timeSlot?'green':'black'
+                    color:slot==timeSlot?'green':'#222'
                   }}
                 >
                   {getDateTimeString(slot.startsTime)} To {getDateTimeString(slot.endsTime)}

@@ -46,7 +46,7 @@ const UsersPage = () => {
       title: "Description",
       dataIndex: "description",
       render: function (data: any) {
-        return <>{data}</>;
+        return <>{data.slice(0,100)}...</>;
       },
     },
     {

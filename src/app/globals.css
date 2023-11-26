@@ -4,13 +4,13 @@ body{
   margin: 0;
 }
 button {
-  border: 1px solid #551A8B !important;
+  border: 1px solid #FD5810 !important;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 2px 5px;
   font-size: 15px;
   font-weight: bold;
-  color: #551A8B !important;
+  color: #FD5810 !important;
   background-color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -19,13 +19,19 @@ button {
 }
 
 button:hover {
-  background-color: #551A8B !important;
+  background-color: #FD5810 !important;
   color: white !important;
 }
 a{
   text-decoration: none;
 }
 .eventSurveyContainer{
-  padding:20px 0;
-  background-image: url('../assets/image/61901993.jpg');
+  margin:20px;
+  padding:0px 0;
+  background-image: url('../assets/image/table.jpg');
+  background-size: cover;
+}
+
+.ant-table-content{
+  overflow-x: scroll;
 }

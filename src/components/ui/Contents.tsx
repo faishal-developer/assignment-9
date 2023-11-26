@@ -9,7 +9,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
     <Content
       style={{
         minHeight: "100vh",
-        color: "black",
+        color: "#222",
       }}
     >
       <Header />
