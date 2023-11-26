@@ -174,7 +174,7 @@
     .event_card:hover {
         // background-color: #FD5810;
         box-shadow: 1px 1px 10px;
-        transition: 1s;
+        transition:box-shadow .5s;
     }
 }
 
@@ -265,7 +265,9 @@
         }
     }
     .review_card:hover{
-        box-shadow: 1px 1px 5px #222;
+        box-shadow: 1px 1px 10px #ddd;
+        border: 1px solid #fff;
+        transition: box-shadow .5s;
     }
     button {
         background-color: #222;

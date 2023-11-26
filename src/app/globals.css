@@ -35,3 +35,7 @@ a{
 .ant-table-content{
   overflow-x: scroll;
 }
+
+.ant-card{
+  transition: box-shadow .5s;
+}
