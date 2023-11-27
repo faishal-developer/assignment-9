@@ -47,7 +47,7 @@ const UsersPage = () => {
       title: "Description",
       dataIndex: "description",
       render: function (data: any) {
-        return <>{data.slice(0,100)}...</>;
+        return <span style={{minWidth:'100px'}}>{data.slice(0,100)}...</span>;
       },
     },
     {

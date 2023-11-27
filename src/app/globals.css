@@ -28,7 +28,7 @@ a{
 .eventSurveyContainer{
   margin:20px;
   padding:0px 0;
-  background-image: url('../assets/image/table.jpg');
+  background-image: url('../assets/image/BlackWeb.jpg');
   background-size: cover;
 }
 
@@ -38,4 +38,8 @@ a{
 
 .ant-card{
   transition: box-shadow .5s;
+}
+
+.fw-bold{
+  font-weight: bold;
 }

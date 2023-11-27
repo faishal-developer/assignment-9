@@ -94,6 +94,10 @@
     .service_image {
         flex: 1;
         max-width: 50%;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
 
     .service_image img {
@@ -105,8 +109,8 @@
     .service_details {
         flex: 1;
         padding: 20px;
-        background-color: #f8f8f8;
-        border: 1px solid #ccc;
+        // background-color: #f8f8f8;
+        // border: 1px solid #ccc;
         border-radius: 10px;
 
         h1 {
@@ -120,7 +124,7 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             line-height: 1.4;
         }
 

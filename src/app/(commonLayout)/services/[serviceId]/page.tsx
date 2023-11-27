@@ -8,7 +8,7 @@ import { getUserInfo, setServiceToCart } from '@/services/auth.service';
 import ReactToastify from '@/components/ui/reactToastify';
 import { toast } from 'react-toastify';
 import { useAddBookingMutation } from '@/redux/api/bookingApi';
-import { Button } from 'antd';
+import { Button, Image } from 'antd';
 type IProps={
     params: { serviceId: string }
 }
@@ -35,12 +35,12 @@ export default function SingleProductPage({ params }:IProps) {
       <ReactToastify/>
         <div className={style.service_page}>
           <div className={style.service_image}>
-            <img src={service?.image} alt={service?.title} />
+            <Image width={'90%'} height={'90%'} src={service?.image} alt={service?.title} />
           </div>
           <div className={style.service_details}>
-            <h1>{service?.name}</h1>
+            <h3>{service?.name}</h3>
             <p>{service?.description}</p>
-            <h2>Available Time Slots</h2>
+            <h4>Available Time Slots</h4>
             <ul className={style.time_slots}>
               {service?.availableTimeSlots.map((slot:any, index:number) => (
                 <li 
@@ -51,7 +51,7 @@ export default function SingleProductPage({ params }:IProps) {
                     color:slot==timeSlot?'green':'#222'
                   }}
                 >
-                  {getDateTimeString(slot.startsTime)} To {getDateTimeString(slot.endsTime)}
+                  {getDateTimeString(slot.startsTime)}<span className='fw-bold'>{`  TO  `}</span> {getDateTimeString(slot.endsTime)}
                 </li>
               ))}
               {<p style={{color:'red'}}>{error?error:''}</p>}

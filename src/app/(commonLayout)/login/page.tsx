@@ -91,7 +91,7 @@ const LoginPage = () => {
           <Link href={'/registration'}>If you not registered yet? Please Register</Link><br/>
           <span>
             note: admin-login  {`->`} admin@gmail.com pass{`->`}123456<br/>
-          note: super-admin-login  {`->`} superadmin@gmail.com pass{`->`}123456
+          {/* note: super-admin-login  {`->`} superadmin@gmail.com pass{`->`}123456 */}
           </span>
         </div>
     </div>
